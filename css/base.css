@@ -1,0 +1,287 @@
+/* ============================================================
+   BASE.CSS — Hotel Bystrá
+   Sdílené styly pro všechny stránky
+   ============================================================
+
+
+   /* ===========================
+      Reset & Základní nastavení
+      =========================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* --- Barvy --- */
+  --bg: #1a1e1c;
+  --text: #F4F1EA;
+  --brass: #b8a065;
+  --brass-dim: rgba(184, 160, 101, 0.25);
+
+  /* --- Fonty --- */
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* ===========================
+   Header — pevná lišta nahoře
+   =========================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 3rem;
+  background: linear-gradient(to bottom, rgba(26, 30, 28, 0.9), transparent);
+}
+
+/* Logo / název hotelu */
+.wordmark {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* Navigace */
+.nav {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.nav a {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.nav a:hover {
+  opacity: 1;
+}
+
+.nav a:focus-visible,
+.nav-overlay-inner a:focus-visible,
+.footer a:focus-visible,
+.site-credit a:focus-visible,
+.burger:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 4px;
+}
+
+.nav a.active {
+  opacity: 1;
+  color: var(--brass);
+}
+
+
+/* ===========================
+   Footer — patička
+   =========================== */
+.footer {
+  border-top: 1px solid rgba(184, 160, 101, 0.15);
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-address {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.5;
+  line-height: 1.8;
+}
+
+.footer a {
+  color: var(--brass);
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.footer a:hover {
+  opacity: 1;
+}
+
+.site-credit {
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid rgba(184, 160, 101, 0.1);
+}
+
+.site-credit a {
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--brass);
+  text-decoration: none;
+  opacity: 0.35;
+  transition: opacity 0.3s;
+}
+
+.site-credit a:hover {
+  opacity: 1;
+}
+
+
+/* ===========================
+   Burger — hamburger tlačítko
+   =========================== */
+.burger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 200;
+  position: relative;
+  width: 44px;
+  height: 44px;
+  justify-content: center;
+  align-items: center;
+}
+
+.burger-line {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--text);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: transform 0.35s ease, opacity 0.25s ease, width 0.35s ease;
+}
+
+.burger-line:nth-child(1) { transform: translateX(-50%) translateY(-7px); }
+.burger-line:nth-child(2) { transform: translateX(-50%) translateY(0); }
+.burger-line:nth-child(3) { transform: translateX(-50%) translateY(7px); }
+
+/* Animace na X */
+.burger[aria-expanded="true"] .burger-line:nth-child(1) {
+  transform: translateX(-50%) translateY(0) rotate(45deg);
+  width: 22px;
+}
+.burger[aria-expanded="true"] .burger-line:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+.burger[aria-expanded="true"] .burger-line:nth-child(3) {
+  transform: translateX(-50%) translateY(0) rotate(-45deg);
+  width: 22px;
+}
+
+
+/* ===========================
+   Nav Overlay — plná obrazovka
+   =========================== */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  background: rgba(26, 30, 28, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.nav-overlay[aria-hidden="false"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.nav-overlay-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  transform: translateY(20px);
+  transition: transform 0.45s ease;
+}
+
+.nav-overlay[aria-hidden="false"] .nav-overlay-inner {
+  transform: translateY(0);
+}
+
+.nav-overlay-inner a {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.6rem, 5vw, 2.8rem);
+  color: var(--text);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.nav-overlay-inner a:hover,
+.nav-overlay-inner a.active {
+  opacity: 1;
+  color: var(--brass);
+}
+
+
+/* ===========================
+   Responsive — mobilní verze
+   =========================== */
+@media (max-width: 860px) {
+  .header {
+    padding: 1.2rem 1.5rem;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.5rem;
+  }
+}

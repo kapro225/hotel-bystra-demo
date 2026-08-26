@@ -1,0 +1,249 @@
+/* ============================================================
+   RESTAURACIA.CSS — Stránka restauracia.html
+   Reštaurácia Al Lago, menu, galerie jídla, terasa
+   ============================================================ */
+
+
+/* ===========================
+   Hero — sekce s pozadím a obsahem
+   =========================== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 75vh;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(30%) brightness(0.4) contrast(1.1) saturate(0.85);
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  padding: 4rem 3rem;
+  background: linear-gradient(to top, rgba(26, 30, 28, 0.95) 0%, transparent 100%);
+}
+
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-bottom: 0.6rem;
+}
+
+.hero-heading, .hero h1 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  line-height: 1.15;
+}
+
+
+/* ===========================
+   Citát — pod hero
+   =========================== */
+.quote {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 5rem 3rem 3rem;
+  text-align: center;
+}
+
+.quote-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--brass);
+  margin: 0 auto 2.5rem;
+  opacity: 0.5;
+}
+
+.quote p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.8;
+  opacity: 0.8;
+}
+
+/* "Tomáš Halík" */
+.quote-attr {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-top: 1.5rem;
+  opacity: 0.6;
+}
+
+
+/* ===========================
+   Popis — "Ristorante al Lago"
+   =========================== */
+.description {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 3rem 5rem;
+  text-align: center;
+}
+
+.description-heading {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  margin-bottom: 1.2rem;
+}
+
+.description p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.9;
+  opacity: 0.75;
+}
+
+
+/* ===========================
+   Menu links — odkazy na PDF menu
+   =========================== */
+.menu-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin: 0 3rem 5rem;
+  flex-wrap: wrap;
+}
+
+/* Jedna položka menu */
+.menu-link {
+  flex: 0 1 auto;
+  max-width: 220px;
+  padding: 1.5rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text);
+  border-top: 1px solid var(--brass-dim);
+  transition: border-color 0.4s ease;
+}
+
+.menu-link:hover {
+  border-color: var(--brass);
+}
+
+/* Logo restaurace mezi položkami */
+.menu-logo {
+  width: 100px;
+  height: auto;
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+/* "Ponuka", "Jedálny lístok", atd. */
+.menu-link-label {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-bottom: 0.4rem;
+}
+
+/* "Denné menu", "Á la carte", atd. */
+.menu-link-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
+
+/* ===========================
+   Galéria jídla — mřížka fotek
+   =========================== */
+.food-gallery {
+  padding: 0 3rem 5rem;
+}
+
+/* "Z našej kuchyne" */
+.food-gallery-label {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-bottom: 2rem;
+  padding-left: 0.5rem;
+  border-left: 2px solid var(--brass-dim);
+}
+
+/* Mřížka jídla */
+.food-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 6px;
+}
+
+/* Jedna fotka jídla */
+.food-item {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 1;
+}
+
+.food-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(15%) brightness(0.85);
+  transition: filter 0.6s ease, transform 0.8s ease;
+}
+
+.food-item:hover img {
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.04);
+}
+
+/* První fotka přes 2 sloupce a 2 řádky */
+.food-item:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.food-item:first-child img {
+  aspect-ratio: auto;
+}
+
+
+/* ===========================
+   Responsive — mobilní verze
+   =========================== */
+@media (max-width: 860px) {
+  .hero { height: 55vh; }
+  .hero-content { padding: 2.5rem 1.5rem; }
+  .quote, .description { padding: 1rem 1.5rem; }
+  .menu-links { margin: 0 1rem 1.5rem; flex-direction: column; align-items: center; gap: 0; }
+  .menu-link { max-width: 100%; width: 100%; padding: 1.2rem 1.5rem; }
+  .menu-link:last-of-type { border-bottom: 1px solid var(--brass-dim); }
+  .menu-logo { width: 70px; }
+  .food-gallery { padding: 0 1rem 3rem; }
+  .food-grid { grid-template-columns: repeat(2, 1fr); gap: 4px; }
+  .food-item:first-child { grid-column: span 2; grid-row: span 1; }
+}

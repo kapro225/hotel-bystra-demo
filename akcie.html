@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akcie &amp; Podujatia | Hotel Bystrá Snina — Oslavy, posedenia, stretnutia</title>
+  <meta name="description" content="Aktuálne akcie a podujatia v Hoteli Bystrá v Snine. Oslavy, posedenia, firemné stretnutia, špeciálne ponuky šéfkuchára.">
+  <meta name="keywords" content="akcie Snina, podujatia Snina, oslavy hotel, posedenia, firemné stretnutia, hotel Bystrá akcie, špeciálna ponuka">
+  <meta name="author" content="Karel Procházka">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://hotelbystra.com/akcie.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="sk_SK">
+  <meta property="og:site_name" content="Hotel Bystrá">
+  <meta property="og:title" content="Akcie &amp; Podujatia | Hotel Bystrá Snina">
+  <meta property="og:description" content="Aktuálne akcie, oslavy, posedenia a špeciálne ponuky v Hoteli Bystrá Snina.">
+  <meta property="og:url" content="https://hotelbystra.com/akcie.html">
+  <meta property="og:image" content="https://hotelbystra.com/static/images/akcie/ristorante-al-lago-PONUKA-SEFKUCHARA-leto-2026-1448x2048.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Akcie &amp; Podujatia | Hotel Bystrá Snina">
+  <meta name="twitter:description" content="Aktuálne akcie, oslavy, posedenia a špeciálne ponuky v Hoteli Bystrá Snina.">
+  <meta name="twitter:image" content="https://hotelbystra.com/static/images/akcie/ristorante-al-lago-PONUKA-SEFKUCHARA-leto-2026-1448x2048.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/akcie.css">
+</head>
+<body>
+
+  <header class="header">
+    <a href="index.html" class="wordmark"><img src="static/images/Hotel-Bystra-LOGO-WHITE.png" alt="Hotel Bystrá — logo hotela v Snine" height="40" width="140"></a>
+    <button type="button" class="burger" aria-label="Otvoriť menu" aria-expanded="false">
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+      <span class="burger-line"></span>
+    </button>
+    <nav class="nav" aria-label="Hlavná navigácia">
+      <a href="index.html">Hlavná stránka</a>
+      <a href="izby.html">Izby &amp; Wellness</a>
+      <a href="restauracia.html">Reštaurácia</a>
+      <a href="akcie.html" class="active">Akcie</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+    <div class="nav-overlay" aria-hidden="true">
+      <nav class="nav-overlay-inner" aria-label="Mobilná navigácia">
+        <a href="index.html">Hlavná stránka</a>
+        <a href="izby.html">Izby &amp; Wellness</a>
+        <a href="restauracia.html">Reštaurácia</a>
+        <a href="akcie.html">Akcie</a>
+        <a href="kontakt.html">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <p class="hero-eyebrow">Podujatia &amp; Akcie</p>
+        <h1>Čo sa u nás deje</h1>
+      </div>
+    </section>
+
+    <section class="events" aria-label="Zoznam akcií">
+      <p class="events-label">Aktuálne akcie</p>
+      <div id="events-list"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-address">
+      Hotel Bystrá<br>
+      Snina, Slovensko<br>
+      info@hotelbystra.com
+    </div>
+    <a href="https://www.facebook.com/HotelBystraSnina/" target="_blank" rel="noopener noreferrer">Facebook &nearr;</a>
+  </footer>
+
+  <div class="site-credit">
+    <a href="https://www.karelprochazka.dev" target="_blank" rel="noopener noreferrer">created by karelprochazka.dev</a>
+  </div>
+
+  <script src="js/menu.js"></script>
+  <script>
+    // =====================================================
+    // UPRAVUJ TU — stačí zmeniť údaje nižšie
+    // Pridaj nový blok { } pre novú akciu
+    // Na konci JSON databloku daj čiarku ak pridávaš ďalší
+    // =====================================================
+    const akcie = [
+      {
+        "nazov": "Ponuka šéfkuchára",
+        "popis": "Špeciálna ponuka každý deň od 15:00. Rebrá, medailóniky, šaláty a dezerty z čerstvých surovín.",
+        "obrazok": "static/images/akcie/ristorante-al-lago-PONUKA-SEFKUCHARA-leto-2026-1448x2048.jpg",
+        "obrazokAlt": "Špeciálna ponuka šéfkuchára — grilované rebrá, medailóniky a čerstvé šaláty v Reštaurácii Al Lago",
+        "datum": "2026-08-24"
+      },
+
+    ];
+    // =====================================================
+    // KONIEC — nižšie nič nemeň
+    // =====================================================
+
+    const list = document.getElementById('events-list');
+
+    if (akcie.length === 0) {
+      list.innerHTML = '<div class="no-events"><p>Zatiaľ žiadne akcie</p></div>';
+    } else {
+      list.innerHTML = akcie.map(a => {
+        const img = a.obrazok
+          ? `<img src="${a.obrazok}" alt="${a.obrazokAlt || a.nazov}" class="event-image" width="800" height="450" loading="lazy">`
+          : '';
+        const date = a.datum
+          ? `<p class="event-date">${new Date(a.datum).toLocaleDateString('sk-SK', { day: 'numeric', month: 'long', year: 'numeric' })}</p>`
+          : '';
+        return `
+          <article class="event-card">
+            ${date}
+            <h2 class="event-title">${a.nazov}</h2>
+            <p class="event-desc">${a.popis}</p>
+            ${img}
+          </article>
+        `;
+      }).join('');
+    }
+  </script>
+
+</body>
+</html>

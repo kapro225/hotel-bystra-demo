@@ -1,0 +1,328 @@
+/* ============================================================
+   INDEX.CSS — Stránka index.html
+   Hero sekce s interaktivními zónami + citát
+   ============================================================ */
+
+
+/* ===========================
+   Hero — hlavní sekce s pozadím
+   =========================== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 86vh;
+  overflow: hidden;
+}
+
+/* Obrázek pozadí */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(35%) brightness(0.5) contrast(1.1) saturate(0.9);
+  transition: filter 0.6s ease;
+}
+
+/* Název hotelu uprostřed */
+.hero-title-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  text-align: center;
+  padding-top: 7rem;
+  pointer-events: none;
+}
+
+/* "Snina · Slovensko" nad názvem */
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-bottom: 0.6rem;
+  opacity: 0.8;
+}
+
+/* Hlavní nadpis */
+.hero-heading, .hero h1 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+
+/* ===========================
+   Hero zóny — 3 interaktivní panely
+   =========================== */
+.hero-zones {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  z-index: 5;
+}
+
+/* Jedna zóna (Izby, Reštaurácia, Akcie) */
+.hero-zone {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 3rem 2.5rem;
+  text-decoration: none;
+  color: var(--text);
+  position: relative;
+  overflow: hidden;
+  transition: filter 0.6s ease;
+}
+
+/* Překryvný gradient při hoveru */
+.hero-zone::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+/* Barvy překryvu pro každou zónu */
+.hero-zone--izby::before {
+  background: linear-gradient(to bottom, transparent 20%, rgba(184, 160, 101, 0.35) 100%);
+}
+
+.hero-zone--resto::before {
+  background: linear-gradient(to bottom, transparent 20%, rgba(120, 40, 50, 0.4) 100%);
+}
+
+.hero-zone--akcie::before {
+  background: linear-gradient(to bottom, transparent 20%, rgba(40, 90, 70, 0.4) 100%);
+}
+
+/* Obsah uvnitř zóny */
+.hero-zone-content {
+  position: relative;
+  z-index: 2;
+  transform: translateY(10px);
+  opacity: 0.6;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* "Ubytovanie", "Gastronómia", "Podujatia" */
+.zone-label {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-bottom: 0.5rem;
+}
+
+/* "Izby & Wellness", "Reštaurácia", "Akcie" */
+.zone-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+  margin-bottom: 0.4rem;
+  line-height: 1.2;
+}
+
+/* Popis pod nadpisem */
+.zone-desc {
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 300;
+  opacity: 0.7;
+  max-width: 240px;
+  line-height: 1.5;
+  margin-bottom: 1.2rem;
+}
+
+/* Odkaz "Viac →" */
+.zone-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brass);
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--brass-dim);
+  width: fit-content;
+  transition: border-color 0.5s ease;
+}
+
+.zone-more-arrow {
+  transition: transform 0.5s ease;
+}
+
+
+/* ===========================
+   Hover efekty — parent :has() detekce
+   =========================== */
+
+/* Zvýraznit zónu pod kurzorem */
+.hero:has(.hero-zone:hover) .hero-zone:hover::before {
+  opacity: 1;
+}
+
+.hero:has(.hero-zone:hover) .hero-zone:hover .hero-zone-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hero:has(.hero-zone:hover) .hero-zone:hover .zone-more {
+  border-color: var(--brass);
+}
+
+.hero:has(.hero-zone:hover) .hero-zone:hover .zone-more-arrow {
+  transform: translateX(4px);
+}
+
+/* Ztmavit sousední zóny */
+.hero:has(.hero-zone:hover) .hero-zone:not(:hover) {
+  filter: brightness(0.35) saturate(0.4);
+}
+
+/* Ztmavit pozadí */
+.hero:has(.hero-zone:hover) .hero-bg {
+  filter: grayscale(50%) brightness(0.35) contrast(1.1) saturate(0.7);
+}
+
+
+/* ===========================
+   Citát — prostřední sekce
+   =========================== */
+.quote-section {
+  padding: 5rem 3rem;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.quote-section p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  line-height: 1.7;
+  color: var(--text);
+  opacity: 0.8;
+}
+
+/* Zlatá čárka nad citátem */
+.quote-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--brass);
+  margin: 0 auto 2rem;
+  opacity: 0.5;
+}
+
+
+/* ===========================
+   Responsive — mobilní verze
+   =========================== */
+@media (max-width: 860px) {
+  .hero {
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg);
+  }
+
+  .hero-bg {
+    height: 100%;
+    min-height: 100vh;
+    position: absolute;
+    inset: 0;
+  }
+
+  .hero-title-area {
+    position: relative;
+    z-index: 10;
+    padding: 6rem 1.5rem 1rem;
+  }
+
+  .hero-zones {
+    position: relative;
+    z-index: 10;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    inset: auto;
+    margin-top: auto;
+    padding: 0 1rem 2rem;
+    gap: 2px;
+  }
+
+  .hero-zone {
+    min-height: 0;
+    padding: 1.4rem 1.2rem;
+    touch-action: manipulation;
+    background: transparent;
+    text-align: center;
+    align-items: center;
+    border-bottom: 1px solid rgba(184, 160, 101, 0.1);
+  }
+
+  .hero-zone:last-child {
+    border-bottom: none;
+  }
+
+  /* Žádný barevný overlay na mobilu */
+  .hero-zone::before {
+    display: none !important;
+  }
+
+  .hero-zone-content {
+    transform: none;
+    opacity: 1;
+  }
+
+  .zone-desc {
+    display: none;
+  }
+
+  .zone-more {
+    padding-top: 0.6rem;
+    font-size: 0.55rem;
+  }
+
+  .quote-section {
+    padding: 3rem 1.5rem;
+    background: var(--bg);
+  }
+
+  /* Gradient přechod z hero do obsahu */
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to bottom, transparent 0%, var(--bg) 100%);
+    z-index: 9;
+    pointer-events: none;
+  }
+}

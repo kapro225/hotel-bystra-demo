@@ -1,0 +1,128 @@
+TESTOVACI PROTOKOL - HOTEL BYSTRA
+Datum: 25. 8. 2026
+Prostredi: lokalni HTTP server http://localhost:10000
+
+1. NACTENI STRANEK
+Vysledek: PASS
+Overene HTML stranky:
+- /
+- index.html
+- izby.html
+- restauracia.html
+- akcie.html
+- kontakt.html
+- denne-menu.html
+- jedalny-listok.html
+- vinna-karta.html
+- napojovy-listok.html
+
+Vsechny stranky se pres HTTP nacetly a vratily status 200.
+
+2. KONZOLE A SITOVA KOMUNIKACE
+Vysledek: PASS pro vlastni web
+- restauracia.html: zadne chyby v konzoli, zadny selhany request vlastniho webu
+- bezne HTML stranky: zadne chyby vlastniho JavaScriptu nebo CSS
+- chyby pri zobrazeni PDF pochazeji z vestaveneho Chrome PDF vieweru (chrome-extension:// a chrome://resources), ne z kodu projektu
+- Google Maps muze v testovacim prohlizeci hlasit preruseny externi request; samotny iframe se nacetl
+
+3. RESPONSIVITA
+Vysledek: PASS
+Overene sirky viewportu:
+- 320 px
+- 375 px
+- 422 px
+- 1440 px desktop
+
+Na overenych strankach nebyl zjisten horizontalni overflow ani pretahovani obsahu mimo viewport.
+
+4. NAVIGACE A MOBILNI MENU
+Vysledek: PASS
+- odkazy v hlavni navigaci jsou pritomne
+- hamburger tlacitko je dostupne na mobilu
+- menu se otevira po kliknuti
+- aria-expanded se pri otevreni meni na true
+- aria-hidden overlay se pri otevreni meni na false
+- telo stranky se pri otevrenem menu zamkne proti scrollovani
+- klavesa Escape menu zavre
+- po zavreni se stav vrati na aria-expanded=false a aria-hidden=true
+
+5. OBRAZKY A ALT TEXTY
+Vysledek: PASS
+- vsechny obrazky na overenych HTML strankach maji atribut alt
+- vsechny obrazky galerie restaurace se po odscrollovani nacetly
+- vsechny obrazky galerie pokoju se nacetly
+- alt texty odpovidaji obsahu fotografii podle kontroly zdroju a nahledu
+- obrazky maji zadane rozmery, cimz se omezuje posun layoutu pri nacitani
+
+6. SEO STRUKTURA
+Vysledek: PASS
+- vsechny HTML stranky maji title
+- vsechny HTML stranky maji meta description
+- vsechny HTML stranky maji canonical
+- vsechny kontrolovane hlavni stranky maji prave jeden h1
+- robots.txt se nacetl se statusem 200
+- sitemap.xml se nacetl se statusem 200
+- JSON-LD bloky se uspesne parsovaly tam, kde jsou pouzity
+- robots.txt povoluje verejne soubory webu
+
+7. AKCE
+Vysledek: PASS
+- akce.html vykreslila jednu aktualni akci
+- vykreslil se nazev, datum, popis i obrazek
+- dynamicky generovany obrazek mel alt atribut
+- v konzoli nebyla zjistena vlastni JavaScriptova chyba
+
+8. PDF MENU
+Vysledek: PASS z hlediska dostupnosti souboru
+- menu/denne-menu.pdf: status 200
+- menu/jedalny-listok.pdf: status 200
+- menu/vinna-karta.pdf: status 200
+- menu/napojovy-listok.pdf: status 200
+- vsechny HTML prohlizece menu: status 200
+
+9. KONTAKTNI PRVKY
+Vysledek: PASS podle DOM kontroly
+- mailto odkazy jsou pritomne
+- telefonni odkazy jsou pritomne
+- odkaz na Google Maps je pritomny
+- mapa ma popisny title atribut
+- externi odkazy s target=_blank pouzivaji rel=noopener nebo rel=noopener noreferrer
+
+10. KLAVESNICE A PRISTUPNOST
+Vysledek: CASTECNE OVERENO / PASS V TESTOVANEM ROZSAHU
+- hamburger lze zamerit klavesnici
+- focus je dostupny a je definovany focus-visible styl
+- Escape zavira mobilni menu
+- obrazky maji alt texty
+- navigace ma popisne aria-label atributy
+
+Plny test screen readerem nebyl proveden, protoze vyzaduje rucni test s VoiceOver/NVDA.
+
+11. VYKON
+Vysledek: FUNKCNE PASS, OPTIMALIZACE DOPORUCENA
+- hero obrazky maji fetchpriority=high a decoding=async
+- galerie pouziva loading=lazy
+- layout pouziva zadane rozmery obrazku
+- web se pri lokalnim testu nacital plynule bez pozorovanych zaseku
+- velke JPG soubory zustavaji optimalizacni rezervou, zejmena galerie pokoju a wellness
+
+12. SERVEROVA BEZPECNOST
+Vysledek: NELZE OVERIT LOKALNE
+Nelze z lokalniho statickeho projektu overit:
+- Content-Security-Policy
+- Strict-Transport-Security
+- X-Content-Type-Options
+- Referrer-Policy
+- HTTPS konfiguraci produkcniho hostingu
+
+Tyto hodnoty je nutne overit po nasazeni na skutecne domene.
+
+13. PRODUKCNI TEST
+Vysledek: NEPROVEDENO
+Test probehl pouze lokalne pres http://localhost:10000.
+Po nasazeni je treba zopakovat kontrolu na hotelbystra.com a overit Lighthouse, PageSpeed Insights, Rich Results Test, HTTPS, robots.txt, sitemap.xml a bezpecnostni hlavicky.
+
+CELKOVY VYSLEDEK
+Lokalni technicke testy projektu prosly.
+Nebyla nalezena chyba ve vlastnim HTML, CSS, JavaScriptu, obrazcich, navigaci ani lokalnich odkazech.
+Zbyvajici overeni zavisi na produkcnim hostingu, verejne domene a rucnim screen-reader testu.

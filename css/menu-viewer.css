@@ -1,0 +1,111 @@
+/* ============================================================
+   MENU-VIEWER.CSS — Stránky pro zobrazení PDF menu
+   denné-menu.html, jedalny-listok.html,
+   vinna-karta.html, napojovy-listok.html
+   ============================================================ */
+
+
+/* ===========================
+   Základní nastavení
+   =========================== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'IBM Plex Mono', monospace;
+  background: #1a1e1c;
+  color: #F4F1EA;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* ===========================
+   Lišta nahoře — tlačítko zpět + název
+   =========================== */
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 1.5rem;
+  background: #131715;
+  border-bottom: 1px solid rgba(184, 160, 101, 0.2);
+  flex-shrink: 0;
+}
+
+/* Název menu vpravo */
+.bar-title {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #b8a065;
+  opacity: 0.7;
+}
+
+/* Tlačítko "Späť" vlevo */
+.bar-back {
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #b8a065;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+.bar-back:hover {
+  opacity: 1;
+}
+
+.bar-back:focus-visible,
+.site-credit a:focus-visible {
+  outline: 2px solid #b8a065;
+  outline-offset: 4px;
+}
+
+/* Šipka doleva */
+.bar-back svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: #b8a065;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* ===========================
+   PDF iframe
+   =========================== */
+iframe {
+  flex: 1;
+  width: 100%;
+  border: 0;
+  background: #1a1e1c;
+}
+
+.site-credit {
+  text-align: center;
+  padding: 0.5rem;
+  background: #131715;
+  border-top: 1px solid rgba(184, 160, 101, 0.15);
+  flex-shrink: 0;
+}
+
+.site-credit a {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.45rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #b8a065;
+  text-decoration: none;
+  opacity: 0.35;
+}

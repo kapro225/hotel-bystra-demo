@@ -1,0 +1,163 @@
+/* ============================================================
+   AKCIE.CSS — Stránka akcie.html
+   Podujatia a akcie
+   ============================================================ */
+
+
+/* ===========================
+   Hero — centrován bez obrázku
+   =========================== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-bottom: 0.8rem;
+}
+
+.hero-heading, .hero h1 {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.15;
+}
+
+
+/* ===========================
+   Seznam akcí
+   =========================== */
+.events {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 3rem 5rem;
+}
+
+/* "Aktuálne akcie" */
+.events-label {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-bottom: 2.5rem;
+  text-align: center;
+  border-top: 1px solid rgba(184, 160, 101, 0.12);
+  padding-top: 2.5rem;
+}
+
+/* Jedna karta akce */
+.event-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-top: 1px solid rgba(184, 160, 101, 0.12);
+  padding: 2.5rem 0;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeUp 0.5s ease forwards;
+}
+
+/* Postupné zobrazení karet */
+.event-card:nth-child(2) { animation-delay: 0.1s; }
+.event-card:nth-child(3) { animation-delay: 0.2s; }
+.event-card:nth-child(4) { animation-delay: 0.3s; }
+
+/* Animace */
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Obrázek akce */
+.event-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 1.5rem;
+  filter: brightness(0.9);
+  transition: filter 0.4s ease;
+}
+
+.event-card:hover .event-image {
+  filter: brightness(1);
+}
+
+/* "24. augusta 2026" */
+.event-date {
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-bottom: 0.6rem;
+}
+
+/* Název akce */
+.event-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  line-height: 1.25;
+  margin-bottom: 0.8rem;
+}
+
+/* Popis akce */
+.event-desc {
+  font-size: 0.85rem;
+  font-weight: 300;
+  line-height: 1.7;
+  opacity: 0.7;
+}
+
+/* Štítek (badge) */
+.event-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--brass);
+  border: 1px solid var(--brass-dim);
+  padding: 0.3rem 0.8rem;
+  margin-top: 1rem;
+  width: fit-content;
+}
+
+/* "Zatiaľ žiadne akcie" */
+.no-events {
+  text-align: center;
+  padding: 4rem 0;
+  opacity: 0.4;
+}
+
+.no-events p {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+
+/* ===========================
+   Responsive — mobilní verze
+   =========================== */
+@media (max-width: 860px) {
+  .hero { height: 40vh; }
+  .events { padding: 0 1rem 3rem; }
+  .event-card { padding: 2rem 0; }
+  .event-image { margin-top: 1rem; }
+}
