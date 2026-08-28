@@ -34,9 +34,19 @@
     </a>
     <span class="bar-title">Denné menu</span>
   </div>
-  <iframe src="menu/denne-menu.pdf"></iframe>
+  <main class="pdf-viewer" data-pdf="menu/denne-menu.pdf">
+    <div class="viewer-toolbar" aria-label="Ovládanie dokumentu">
+      <button type="button" class="viewer-button" data-action="zoom-out" aria-label="Zmenšiť" title="Zmenšiť">−</button>
+      <span class="zoom-level" aria-live="polite">100 %</span>
+      <button type="button" class="viewer-button" data-action="zoom-in" aria-label="Zväčšiť" title="Zväčšiť">+</button>
+      <button type="button" class="viewer-button viewer-reset" data-action="zoom-reset" aria-label="Obnoviť veľkosť" title="Obnoviť veľkosť">100 %</button>
+      <a class="viewer-button viewer-download" href="menu/denne-menu.pdf" download aria-label="Stiahnuť PDF" title="Stiahnuť PDF">↓</a>
+    </div>
+    <div class="pdf-pages" aria-live="polite"><p class="viewer-status">Načítavam menu…</p></div>
+  </main>
   <div class="site-credit">
     <a href="https://www.karelprochazka.dev" target="_blank" rel="noopener noreferrer">created by karelprochazka.dev</a>
   </div>
+  <script type="module" src="js/pdf-viewer.js"></script>
 </body>
 </html>

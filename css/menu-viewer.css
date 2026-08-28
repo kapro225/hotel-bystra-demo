@@ -83,13 +83,101 @@ body {
 
 
 /* ===========================
-   PDF iframe
+   Vlastný PDF viewer
    =========================== */
-iframe {
+.pdf-viewer {
   flex: 1;
-  width: 100%;
-  border: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.viewer-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
   background: #1a1e1c;
+  border-bottom: 1px solid rgba(184, 160, 101, 0.2);
+  flex-shrink: 0;
+}
+
+.viewer-button {
+  min-width: 2.2rem;
+  height: 2.2rem;
+  padding: 0 0.55rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(184, 160, 101, 0.35);
+  border-radius: 2px;
+  background: transparent;
+  color: #b8a065;
+  font: 500 0.7rem 'IBM Plex Mono', monospace;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.viewer-button:hover,
+.viewer-button:focus-visible {
+  background: rgba(184, 160, 101, 0.15);
+  color: #F4F1EA;
+}
+
+.zoom-level {
+  min-width: 4.5rem;
+  color: #F4F1EA;
+  font-size: 0.65rem;
+  text-align: center;
+}
+
+.viewer-reset {
+  margin-left: 0.35rem;
+}
+
+.viewer-download {
+  margin-left: 0.35rem;
+  font-size: 1.1rem;
+}
+
+.pdf-pages {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 1.5rem;
+  background: #303330;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.pdf-page {
+  width: calc(var(--page-width) * var(--page-zoom));
+  height: calc(var(--page-height) * var(--page-zoom));
+  margin: 0 auto 1.5rem;
+  background: white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  transform-origin: top center;
+}
+
+.pdf-page canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  transform: scale(var(--page-zoom));
+  transform-origin: top left;
+}
+
+.viewer-status {
+  padding: 3rem 1rem;
+  color: #b8a065;
+  font-size: 0.7rem;
+  text-align: center;
+}
+
+.viewer-error {
+  color: #d99987;
 }
 
 .site-credit {
@@ -108,4 +196,37 @@ iframe {
   color: #b8a065;
   text-decoration: none;
   opacity: 0.35;
+}
+
+@media (max-width: 600px) {
+  .bar {
+    padding: 0.8rem 1rem;
+  }
+
+  .viewer-toolbar {
+    gap: 0.3rem;
+    padding: 0.55rem 0.6rem;
+  }
+
+  .viewer-button {
+    min-width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .viewer-reset {
+    font-size: 0;
+  }
+
+  .viewer-reset::before {
+    content: '↺';
+    font-size: 1rem;
+  }
+
+  .pdf-pages {
+    padding: 1rem 0.5rem;
+  }
+
+  .pdf-page {
+    margin-bottom: 1rem;
+  }
 }
