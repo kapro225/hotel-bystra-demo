@@ -118,11 +118,28 @@ Nelze z lokalniho statickeho projektu overit:
 Tyto hodnoty je nutne overit po nasazeni na skutecne domene.
 
 13. PRODUKCNI TEST
-Vysledek: NEPROVEDENO
-Test probehl pouze lokalne pres http://localhost:10000.
-Po nasazeni je treba zopakovat kontrolu na hotelbystra.com a overit Lighthouse, PageSpeed Insights, Rich Results Test, HTTPS, robots.txt, sitemap.xml a bezpecnostni hlavicky.
+Vysledek: PASS V TESTOVANEM ROZSAHU
+Test probehl na verejne URL https://hotel-bystra-demo.netlify.app.
+- jedalny-listok.html se nacetl se statusem 200
+- novy PDF viewer se na verejne URL uspesne inicializoval
+- bylo vykresleno vsech 8 stran jedalneho listku
+- ovladaci prvky vieweru byly pritomne a bez chybove hlasky
+- verejne nasazeni funguje bez pozorovanych problemu
+- uplny audit produkcnich HTTP hlavicek, Lighthouse, PageSpeed Insights a Rich Results Test nebyl soucasti tohoto overeni
+
+14. VLASTNI PDF VIEWER
+Vysledek: PASS
+Test provedeno na lokalnim HTTP serveru http://localhost:11000.
+- vestaveny PDF iframe byl nahrazen vlastnim viewerem PDF.js
+- jedalny-listok.html se uspesne vykreslil jako 8 samostatnych stran v canvas prvku
+- stranky menu lze prochazet svislym scrollovanim
+- ovladani zvetseni funguje a zmena zoomu z 100 % na 120 % byla overena v prohlizeci
+- funguje zmenseni, zvetseni i obnoveni velikosti na 100 %
+- je pritomne tlacitko pro stazeni puvodniho PDF souboru
+- viewer je pripraven pro mobilni Safari, kde puvodni vestaveny PDF nahled neumoznoval spolehlive listovani a ovladani zoomu
+- stejny viewer je pouzit pro denne-menu.html, jedalny-listok.html, vinna-karta.html a napojovy-listok.html
 
 CELKOVY VYSLEDEK
-Lokalni technicke testy projektu prosly.
-Nebyla nalezena chyba ve vlastnim HTML, CSS, JavaScriptu, obrazcich, navigaci ani lokalnich odkazech.
-Zbyvajici overeni zavisi na produkcnim hostingu, verejne domene a rucnim screen-reader testu.
+Lokalni i verejne technicke testy projektu prosly vcetne vlastniho PDF vieweru.
+Nebyla nalezena chyba ve vlastnim HTML, CSS, JavaScriptu, obrazcich, navigaci, lokalnich odkazech ani ovladani menu PDF.
+Zbyva rucni screen-reader test a uplny audit produkcnich HTTP hlavicek, Lighthouse, PageSpeed Insights a Rich Results Test.
