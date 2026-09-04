@@ -21,7 +21,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: grayscale(30%) brightness(0.4) contrast(1.1) saturate(0.85);
+  filter: grayscale(35%) brightness(0.725) contrast(1.1) saturate(0.9);
 }
 
 .hero-content {
@@ -212,7 +212,7 @@
   height: 100%;
   object-fit: cover;
   display: block;
-  filter: grayscale(15%) brightness(0.85);
+  filter: grayscale(15%) brightness(0.925);
   transition: filter 0.6s ease, transform 0.8s ease;
 }
 

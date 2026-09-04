@@ -88,7 +88,7 @@
   height: auto;
   display: block;
   margin-top: 1.5rem;
-  filter: brightness(0.9);
+  filter: brightness(0.95);
   transition: filter 0.4s ease;
 }
 
