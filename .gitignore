@@ -1,1 +1,5 @@
+node_modules/
+convert-avif.mjs
+package.json
+package-lock.json
 .DS_Store
