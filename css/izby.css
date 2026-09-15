@@ -209,11 +209,11 @@
 
 .wellness-middle .wellness-main-image {
   background: #1a1e1c;
-  height: 480px;
+  height: 340px;
 }
 
 .wellness-middle .wellness-main-image img {
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
 }
 
