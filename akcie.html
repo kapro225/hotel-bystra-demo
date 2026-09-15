@@ -29,9 +29,12 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/akcie.css">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap"></noscript>
+  <link rel="preload" as="style" href="css/base.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/base.css"></noscript>
+  <link rel="preload" as="style" href="css/akcie.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/akcie.css"></noscript>
 </head>
 <body>
 
@@ -87,7 +90,7 @@
     <a href="https://www.karelprochazka.dev" target="_blank" rel="noopener noreferrer">created by karelprochazka.dev</a>
   </div>
 
-  <script src="js/menu.js"></script>
+  <script defer src="js/menu.js"></script>
   <script>
     // =====================================================
     // UPRAVUJ TU — stačí zmeniť údaje nižšie
@@ -131,7 +134,7 @@
       }).join('');
     }
     </script>
-  <script src="js/reveal.js"></script>
+  <script defer src="js/reveal.js"></script>
 
 </body>
 </html>

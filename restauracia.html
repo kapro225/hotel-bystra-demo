@@ -29,10 +29,13 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap"></noscript>
   <link rel="preload" as="image" href="static/images/restaurant/hlavni_-800.avif" imagesrcset="static/images/restaurant/hlavni_-800.avif 800w, static/images/restaurant/hlavni_-1200.avif 1200w, static/images/restaurant/hlavni_-1920.avif 1920w" imagesizes="100vw" fetchpriority="high">
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/restauracia.css">
+  <link rel="preload" as="style" href="css/base.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/base.css"></noscript>
+  <link rel="preload" as="style" href="css/restauracia.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="css/restauracia.css"></noscript>
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -174,7 +177,7 @@
     <a href="https://www.karelprochazka.dev" target="_blank" rel="noopener noreferrer">created by karelprochazka.dev</a>
   </div>
 
-  <script src="js/menu.js"></script>
-  <script src="js/reveal.js"></script>
+  <script defer src="js/menu.js"></script>
+  <script defer src="js/reveal.js"></script>
 </body>
 </html>
