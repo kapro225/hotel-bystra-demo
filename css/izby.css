@@ -207,8 +207,13 @@
   transition: transform 0.8s ease, filter 0.6s ease;
 }
 
+.wellness-middle .wellness-main-image {
+  background: #1a1e1c;
+}
+
 .wellness-middle .wellness-main-image img {
-  object-position: center 55%;
+  object-fit: contain;
+  object-position: center;
 }
 
 .wellness-main-image:hover img {
