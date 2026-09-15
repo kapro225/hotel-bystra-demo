@@ -95,15 +95,15 @@
       <picture><source srcset="static/images/hotel.avif" type="image/avif"><img src="static/images/hotel.jpg" alt="Hotel Bystrá — pohľad na hotel v Snine" class="hero-bg" width="1920" height="1080" fetchpriority="high" decoding="async"></picture>
       <div class="hero-overlay"></div>
       <div class="hero-title-area">
-        <p class="hero-eyebrow">Kontakt</p>
-        <h1>Ozvite sa nám</h1>
+        <p class="hero-eyebrow reveal">Kontakt</p>
+        <h1 class="reveal reveal-delay-1">Ozvite sa nám</h1>
       </div>
     </section>
 
     <section class="contact-section" aria-label="Kontaktné údaje">
       <div class="contact-grid">
 
-        <div class="contact-card">
+        <div class="contact-card reveal">
           <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/>
             <polyline points="9 21 9 12 15 12 15 21"/>
@@ -115,7 +115,7 @@
           </div>
         </div>
 
-        <div class="contact-card">
+        <div class="contact-card reveal reveal-delay-1">
           <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
             <rect x="2" y="4" width="20" height="16" rx="2"/>
             <polyline points="22,4 12,13 2,4"/>
@@ -127,7 +127,7 @@
           </div>
         </div>
 
-        <div class="contact-card">
+        <div class="contact-card reveal reveal-delay-2">
           <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
           </svg>
@@ -139,7 +139,7 @@
           </div>
         </div>
 
-        <div class="contact-card">
+        <div class="contact-card reveal reveal-delay-3">
           <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M3 21h18"/>
             <path d="M5 21V7l7-4 7 4v14"/>
@@ -161,9 +161,9 @@
       </div>
     </section>
 
-    <section class="map-card" aria-label="Mapa s polohou hotela">
+    <section class="map-card reveal" aria-label="Mapa s polohou hotela">
       <div class="map-card-inner">
-        <div class="map-card-text">
+        <div class="map-card-text reveal">
           <p class="map-card-eyebrow">Adresa</p>
           <h2>Hotel Bystrá</h2>
           <div class="map-card-address">
@@ -176,7 +176,7 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </div>
-        <div class="map-card-visual">
+        <div class="map-card-visual reveal reveal-delay-1">
           <iframe
             src="https://maps.google.com/maps?q=Hotel+Bystr%C3%A1+Rybn%C3%ADcka+682+Snina&t=&z=15&ie=UTF8&iwloc=&output=embed"
             allowfullscreen=""
@@ -203,5 +203,6 @@
   </div>
 
   <script src="js/menu.js"></script>
+  <script src="js/reveal.js"></script>
 </body>
 </html>

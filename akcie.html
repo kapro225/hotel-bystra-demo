@@ -63,13 +63,13 @@
   <main>
     <section class="hero">
       <div>
-        <p class="hero-eyebrow">Podujatia &amp; Akcie</p>
-        <h1>Čo sa u nás deje</h1>
+        <p class="hero-eyebrow reveal">Podujatia &amp; Akcie</p>
+        <h1 class="reveal reveal-delay-1">Čo sa u nás deje</h1>
       </div>
     </section>
 
     <section class="events" aria-label="Zoznam akcií">
-      <p class="events-label">Aktuálne akcie</p>
+      <p class="events-label reveal">Aktuálne akcie</p>
       <div id="events-list"></div>
     </section>
   </main>
@@ -121,7 +121,7 @@
           ? `<p class="event-date">${new Date(a.datum).toLocaleDateString('sk-SK', { day: 'numeric', month: 'long', year: 'numeric' })}</p>`
           : '';
         return `
-          <article class="event-card">
+          <article class="event-card reveal">
             ${date}
             <h2 class="event-title">${a.nazov}</h2>
             <p class="event-desc">${a.popis}</p>
@@ -130,7 +130,8 @@
         `;
       }).join('');
     }
-  </script>
+    </script>
+  <script src="js/reveal.js"></script>
 
 </body>
 </html>
