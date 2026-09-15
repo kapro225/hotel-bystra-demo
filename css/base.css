@@ -125,7 +125,8 @@ picture { display: block; }
   font-size: 0.6rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  opacity: 0.5;
+  color: var(--brass);
+  opacity: 0.6;
   line-height: 1.8;
 }
 
