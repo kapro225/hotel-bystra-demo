@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: hotel-bystra
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
+    autoDeploy: true
