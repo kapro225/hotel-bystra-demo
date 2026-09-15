@@ -30,6 +30,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="static/images/restaurant/hlavni_-800.avif" imagesrcset="static/images/restaurant/hlavni_-800.avif 800w, static/images/restaurant/hlavni_-1200.avif 1200w, static/images/restaurant/hlavni_-1920.avif 1920w" imagesizes="100vw" fetchpriority="high">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/restauracia.css">
 
@@ -87,7 +88,7 @@
 
   <main>
     <section class="hero">
-      <picture><source srcset="static/images/restaurant/hlavni_.avif" type="image/avif"><img src="static/images/restaurant/hlavni_.jpg" alt="Reštaurácia Al Lago — interiér stredomorskej reštaurácie v Hoteli Bystrá Snina" class="hero-bg" width="1920" height="1080" fetchpriority="high" decoding="async"></picture>
+      <picture><source type="image/avif" srcset="static/images/restaurant/hlavni_-800.avif 800w, static/images/restaurant/hlavni_-1200.avif 1200w, static/images/restaurant/hlavni_-1920.avif 1920w" sizes="100vw"><source type="image/webp" srcset="static/images/restaurant/hlavni_-800.webp 800w" sizes="100vw"><img src="static/images/restaurant/hlavni_.jpg" alt="Reštaurácia Al Lago — interiér stredomorskej reštaurácie v Hoteli Bystrá Snina" class="hero-bg" width="1920" height="1080" fetchpriority="high" decoding="async"></picture>
       <div class="hero-content">
         <p class="hero-eyebrow reveal">Reštaurácia Al Lago</p>
         <h1 class="reveal reveal-delay-1">Chuť Stredomoria v Snine</h1>

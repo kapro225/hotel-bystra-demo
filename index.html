@@ -32,6 +32,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/index.css">
+  <link rel="preload" as="image" href="static/images/hotel-1200.avif" imagesrcset="static/images/hotel-800.avif 800w, static/images/hotel-1200.avif 1200w, static/images/hotel-1920.avif 1920w" imagesizes="100vw" fetchpriority="high">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -104,7 +105,7 @@
 
   <main>
     <section class="hero">
-      <picture><source srcset="static/images/hotel.avif" type="image/avif"><img src="static/images/hotel.jpg" alt="Hotel Bystrá — pohľad na hotel v Snine" class="hero-bg" width="1920" height="1080" fetchpriority="high" decoding="async"></picture>
+      <picture><source type="image/avif" srcset="static/images/hotel-800.avif 800w, static/images/hotel-1200.avif 1200w, static/images/hotel-1920.avif 1920w" sizes="100vw"><source type="image/webp" srcset="static/images/hotel-800.webp 800w, static/images/hotel-1200.webp 1200w, static/images/hotel-1920.webp 1920w" sizes="100vw"><img src="static/images/hotel.jpg" alt="Hotel Bystrá — pohľad na hotel v Snine" class="hero-bg" width="1920" height="1080" fetchpriority="high" decoding="async"></picture>
 
       <div class="hero-title-area">
         <p class="hero-eyebrow reveal">Snina &middot; Slovensko</p>
